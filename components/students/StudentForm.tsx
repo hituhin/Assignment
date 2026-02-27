@@ -44,40 +44,45 @@ export default function StudentForm({ defaultValues, onSubmit, submitLabel = "Sa
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-      {/* Name */}
-      <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
-        <input
-          {...register("name", { required: "Name is required", minLength: { value: 2, message: "Min 2 characters" } })}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-          placeholder="Alice Johnson"
-        />
-        {errors.name && <p className="text-xs text-red-500 mt-1">{errors.name.message}</p>}
+      {/* Full Name + Email — side by side on desktop */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
+          <input
+            {...register("name", {
+              required: "Name is required",
+              minLength: { value: 2, message: "Min 2 characters" },
+              pattern: { value: /^[A-Za-z\s]+$/, message: "Name can only contain letters" },
+            })}
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="e.g., Alice Johnson"
+          />
+          {errors.name && <p className="text-xs text-red-500 mt-1">{errors.name.message}</p>}
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">Email *</label>
+          <input
+            {...register("email", {
+              required: "Email is required",
+              pattern: { value: /^\S+@\S+\.\S+$/, message: "Invalid email" },
+            })}
+            type="email"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="e.g., alice@university.edu"
+          />
+          {errors.email && <p className="text-xs text-red-500 mt-1">{errors.email.message}</p>}
+        </div>
       </div>
 
-      {/* Email */}
-      <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">Email *</label>
-        <input
-          {...register("email", {
-            required: "Email is required",
-            pattern: { value: /^\S+@\S+\.\S+$/, message: "Invalid email" },
-          })}
-          type="email"
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-          placeholder="alice@university.edu"
-        />
-        {errors.email && <p className="text-xs text-red-500 mt-1">{errors.email.message}</p>}
-      </div>
-
-      {/* Code + Year */}
+      {/* Student Code + Year */}
       <div className="grid grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Student Code *</label>
           <input
             {...register("studentCode", { required: "Code is required" })}
             className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="STU-011"
+            placeholder="e.g., STU-011"
           />
           {errors.studentCode && <p className="text-xs text-red-500 mt-1">{errors.studentCode.message}</p>}
         </div>
@@ -125,13 +130,15 @@ export default function StudentForm({ defaultValues, onSubmit, submitLabel = "Sa
         <GradeFieldArray control={control} errors={errors} courses={courses} />
       </div>
 
-      <button
-        type="submit"
-        disabled={loading}
-        className="w-full sm:w-auto px-6 py-2.5 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 disabled:opacity-50 transition-colors"
-      >
-        {loading ? "Saving..." : submitLabel}
-      </button>
+      <div className="flex justify-end pt-1">
+        <button
+          type="submit"
+          disabled={loading}
+          className="px-6 py-2.5 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 disabled:opacity-50 transition-colors"
+        >
+          {loading ? "Saving..." : submitLabel}
+        </button>
+      </div>
     </form>
   );
 }

@@ -6,6 +6,7 @@ export async function GET(request: NextRequest) {
   const search = searchParams.get("search")?.toLowerCase() ?? "";
   const department = searchParams.get("department") ?? "";
   const status = searchParams.get("status") ?? "";
+  const year = searchParams.get("year") ?? "";
   const page = Math.max(1, Number(searchParams.get("page") ?? 1));
   const limit = Math.max(1, Number(searchParams.get("limit") ?? 8));
 
@@ -21,6 +22,7 @@ export async function GET(request: NextRequest) {
   }
   if (department) students = students.filter((s) => s.department === department);
   if (status) students = students.filter((s) => s.status === status);
+  if (year) students = students.filter((s) => s.enrollmentYear === Number(year));
 
   const total = students.length;
   const start = (page - 1) * limit;

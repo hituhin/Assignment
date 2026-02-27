@@ -342,7 +342,7 @@ export default function FacultyPage() {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-3 text-center">
+            <div className="grid grid-cols-2 gap-3 text-center">
               <div className="bg-gray-50 rounded-lg p-2">
                 <p className="text-lg font-bold text-gray-800">{f.courses.length}</p>
                 <p className="text-xs text-gray-400">Courses</p>
@@ -350,10 +350,6 @@ export default function FacultyPage() {
               <div className="bg-gray-50 rounded-lg p-2">
                 <p className="text-lg font-bold text-gray-800">{f.studentCount}</p>
                 <p className="text-xs text-gray-400">Students</p>
-              </div>
-              <div className="bg-gray-50 rounded-lg p-2">
-                <p className="text-lg font-bold text-gray-800">{f.email.split("@")[0]}</p>
-                <p className="text-xs text-gray-400">Handle</p>
               </div>
             </div>
 

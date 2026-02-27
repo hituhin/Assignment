@@ -9,8 +9,6 @@ interface StoreData {
   grades: Grade[];
 }
 
-// Deep clone seed data into a module-level mutable store.
-// Resets automatically on every server restart — no persistence needed.
 let store: StoreData = JSON.parse(JSON.stringify(rawData)) as StoreData;
 
 export function getStore(): StoreData {

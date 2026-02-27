@@ -2,11 +2,10 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { mutate } from "swr";
 import apiClient from "@/lib/api/client";
-import PageHeader from "@/components/layout/PageHeader";
 import CourseForm, { type CourseFormValues } from "@/components/courses/CourseForm";
-import Link from "next/link";
 
 export default function NewCoursePage() {
   const router = useRouter();
@@ -30,12 +29,21 @@ export default function NewCoursePage() {
   }
 
   return (
-    <div className="max-w-2xl space-y-6">
-      <PageHeader title="New Course" description="Add a new course to the system">
-        <Link href="/courses" className="px-4 py-2 border border-gray-300 text-sm font-medium rounded-lg hover:bg-gray-50">
-          Cancel
+    <div className="space-y-6">
+      <div className="flex items-center gap-3">
+        <Link
+          href="/courses"
+          className="p-2 rounded-lg text-gray-500 hover:bg-gray-100 hover:text-gray-700 transition-colors"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
         </Link>
-      </PageHeader>
+        <div>
+          <h1 className="text-xl font-bold text-gray-900">New Course</h1>
+          <p className="text-xs text-gray-500 mt-0.5">Add a new course to the system</p>
+        </div>
+      </div>
 
       <div className="bg-white rounded-xl border border-gray-200 p-6">
         <CourseForm onSubmit={handleSubmit} submitLabel="Create Course" loading={loading} />

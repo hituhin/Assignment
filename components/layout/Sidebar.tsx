@@ -75,7 +75,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
           <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center font-bold text-sm">
             A
           </div>
-          <span className="font-semibold text-lg">AcadAdmin</span>
+          <span className="font-semibold text-lg">Admin Dashboard</span>
         </div>
 
         <nav className="flex-1 px-3 py-4 space-y-1">
@@ -104,7 +104,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
         </nav>
 
         <div className="px-6 py-4 border-t border-slate-700 text-xs text-slate-500">
-          Gain Solutions Ltd © 2024
+          Gain Solutions Ltd © 2026
         </div>
       </aside>
     </>

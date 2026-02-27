@@ -2,10 +2,9 @@
 
 import { use, useState } from "react";
 import { useRouter } from "next/navigation";
-import useSWR, { mutate } from "swr";
 import Link from "next/link";
+import useSWR, { mutate } from "swr";
 import apiClient, { fetcher } from "@/lib/api/client";
-import PageHeader from "@/components/layout/PageHeader";
 import CourseForm, { type CourseFormValues } from "@/components/courses/CourseForm";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 import type { CourseWithStats } from "@/types";
@@ -27,7 +26,7 @@ export default function EditCoursePage({ params }: { params: Promise<{ id: strin
     semester: course.semester,
     department: course.department,
     maxCapacity: course.maxCapacity,
-    instructorIds: course.instructorIds.map((id) => ({ value: id })),
+    instructorIds: course.instructorIds.map((fid) => ({ value: fid })),
   };
 
   async function handleSubmit(data: CourseFormValues) {
@@ -48,12 +47,21 @@ export default function EditCoursePage({ params }: { params: Promise<{ id: strin
   }
 
   return (
-    <div className="max-w-2xl space-y-6">
-      <PageHeader title={`Edit: ${course.title}`} description={course.code}>
-        <Link href="/courses" className="px-4 py-2 border border-gray-300 text-sm font-medium rounded-lg hover:bg-gray-50">
-          Cancel
+    <div className="space-y-6">
+      <div className="flex items-center gap-3">
+        <Link
+          href="/courses"
+          className="p-2 rounded-lg text-gray-500 hover:bg-gray-100 hover:text-gray-700 transition-colors"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
         </Link>
-      </PageHeader>
+        <div>
+          <h1 className="text-xl font-bold text-gray-900">Edit Course</h1>
+          <p className="text-xs text-gray-500 mt-0.5">{course.code} — {course.title}</p>
+        </div>
+      </div>
 
       <div className="bg-white rounded-xl border border-gray-200 p-6">
         <CourseForm

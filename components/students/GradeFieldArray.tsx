@@ -20,7 +20,7 @@ export default function GradeFieldArray({ control, errors, courses }: GradeField
         <label className="text-sm font-medium text-gray-700">Grades</label>
         <button
           type="button"
-          onClick={() => append({ courseId: "", letterGrade: "B" })}
+          onClick={() => append({ courseId: "", letterGrade: "" })}
           className="flex items-center gap-1 text-sm text-blue-600 hover:text-blue-700 font-medium"
         >
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -35,7 +35,7 @@ export default function GradeFieldArray({ control, errors, courses }: GradeField
           <div key={field.id} className="flex items-start gap-2 p-3 bg-gray-50 rounded-lg">
             <div className="flex-1 min-w-0">
               <select
-                {...control.register(`grades.${index}.courseId`, { required: "Course required" })}
+                {...control.register(`grades.${index}.courseId`, { required: "Please select a course" })}
                 className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
               >
                 <option value="">Select course</option>
@@ -47,13 +47,17 @@ export default function GradeFieldArray({ control, errors, courses }: GradeField
                 <p className="text-xs text-red-500 mt-1">{errors.grades[index].courseId?.message}</p>
               )}
             </div>
-            <div className="w-24">
+            <div className="w-32">
               <select
-                {...control.register(`grades.${index}.letterGrade`, { required: true })}
+                {...control.register(`grades.${index}.letterGrade`, { required: "Please select a grade" })}
                 className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
               >
+                <option value="">Select grade</option>
                 {LETTER_GRADES.map((g) => <option key={g} value={g}>{g}</option>)}
               </select>
+              {errors.grades?.[index]?.letterGrade && (
+                <p className="text-xs text-red-500 mt-1">{errors.grades[index].letterGrade?.message}</p>
+              )}
             </div>
             <button
               type="button"

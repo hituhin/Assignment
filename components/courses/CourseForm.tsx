@@ -41,15 +41,26 @@ export default function CourseForm({ defaultValues, onSubmit, submitLabel = "Sav
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-      {/* Title */}
-      <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">Course Title *</label>
-        <input
-          {...register("title", { required: "Title is required", minLength: { value: 3, message: "Min 3 characters" } })}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-          placeholder="Data Structures"
-        />
-        {errors.title && <p className="text-xs text-red-500 mt-1">{errors.title.message}</p>}
+      {/* Department + Course Title — side by side */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">Department *</label>
+          <select
+            {...register("department", { required: true })}
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+          >
+            {DEPARTMENTS.map((d) => <option key={d} value={d}>{d}</option>)}
+          </select>
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">Course Title *</label>
+          <input
+            {...register("title", { required: "Title is required", minLength: { value: 3, message: "Min 3 characters" } })}
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="e.g., Data Structures"
+          />
+          {errors.title && <p className="text-xs text-red-500 mt-1">{errors.title.message}</p>}
+        </div>
       </div>
 
       {/* Code + Credits */}
@@ -59,7 +70,7 @@ export default function CourseForm({ defaultValues, onSubmit, submitLabel = "Sav
           <input
             {...register("code", { required: "Code is required", pattern: { value: /^[A-Z]{2,6}\d{3,4}$/, message: "Format: CS301" } })}
             className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="CS301"
+            placeholder="e.g., CS301"
           />
           {errors.code && <p className="text-xs text-red-500 mt-1">{errors.code.message}</p>}
         </div>
@@ -86,7 +97,7 @@ export default function CourseForm({ defaultValues, onSubmit, submitLabel = "Sav
           <input
             {...register("semester", { required: "Semester is required" })}
             className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="Fall 2025"
+            placeholder="e.g., Fall 2025"
           />
           {errors.semester && <p className="text-xs text-red-500 mt-1">{errors.semester.message}</p>}
         </div>
@@ -106,17 +117,6 @@ export default function CourseForm({ defaultValues, onSubmit, submitLabel = "Sav
         </div>
       </div>
 
-      {/* Department */}
-      <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">Department *</label>
-        <select
-          {...register("department", { required: true })}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
-        >
-          {DEPARTMENTS.map((d) => <option key={d} value={d}>{d}</option>)}
-        </select>
-      </div>
-
       {/* Description */}
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-1">Description</label>
@@ -133,13 +133,15 @@ export default function CourseForm({ defaultValues, onSubmit, submitLabel = "Sav
         <InstructorFieldArray control={control} errors={errors} faculty={faculty} />
       </div>
 
-      <button
-        type="submit"
-        disabled={loading}
-        className="w-full sm:w-auto px-6 py-2.5 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 disabled:opacity-50 transition-colors"
-      >
-        {loading ? "Saving..." : submitLabel}
-      </button>
+      <div className="flex justify-end pt-1">
+        <button
+          type="submit"
+          disabled={loading}
+          className="px-6 py-2.5 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 disabled:opacity-50 transition-colors"
+        >
+          {loading ? "Saving..." : submitLabel}
+        </button>
+      </div>
     </form>
   );
 }

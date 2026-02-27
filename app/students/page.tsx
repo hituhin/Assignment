@@ -22,6 +22,7 @@ export default function StudentsPage() {
   const [search, setSearch] = useState("");
   const [department, setDepartment] = useState("");
   const [status, setStatus] = useState("");
+  const [year, setYear] = useState("");
   const [deleteId, setDeleteId] = useState<string | null>(null);
   const [deleting, setDeleting] = useState(false);
 
@@ -30,6 +31,7 @@ export default function StudentsPage() {
     ...(search && { search }),
     ...(department && { department }),
     ...(status && { status }),
+    ...(year && { year }),
   });
   const swrKey = `/students?${params}`;
   const { data, isLoading } = useSWR<PaginatedResponse<Student>>(swrKey, fetcher);
@@ -104,6 +106,16 @@ export default function StudentsPage() {
           <option value="">All Status</option>
           <option value="active">Active</option>
           <option value="inactive">Inactive</option>
+        </select>
+        <select
+          value={year}
+          onChange={(e) => { setYear(e.target.value); resetPage(); }}
+          className="px-3 py-2 border border-gray-300 rounded-lg text-sm bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+        >
+          <option value="">All Years</option>
+          {Array.from({ length: new Date().getFullYear() - 2019 }, (_, i) => new Date().getFullYear() - i).map((y) => (
+            <option key={y} value={y}>{y}</option>
+          ))}
         </select>
       </div>
 
