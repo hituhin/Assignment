@@ -24,13 +24,10 @@ git clone https://github.com/hituhin/Assignment.git
 cd Assignment
 
 # Install dependencies
-npm install --legacy-peer-deps
+npm install
 
 # Start the development server
 npm run dev
-
-
-> **Note:** `--legacy-peer-deps` is required because `react-apexcharts` has a peer dependency.
 
 
 
