@@ -1,0 +1,72 @@
+{
+  "students": [
+    { "id": "s1", "name": "Alice Johnson",  "email": "alice@uni.edu",  "studentCode": "STU-001", "enrollmentYear": 2022, "department": "Computer Science", "status": "active" },
+    { "id": "s2", "name": "Bob Martinez",   "email": "bob@uni.edu",    "studentCode": "STU-002", "enrollmentYear": 2021, "department": "Mathematics",      "status": "active" },
+    { "id": "s3", "name": "Carol Williams", "email": "carol@uni.edu",  "studentCode": "STU-003", "enrollmentYear": 2023, "department": "Computer Science", "status": "active" },
+    { "id": "s4", "name": "David Lee",      "email": "david@uni.edu",  "studentCode": "STU-004", "enrollmentYear": 2022, "department": "Physics",          "status": "active" },
+    { "id": "s5", "name": "Emma Brown",     "email": "emma@uni.edu",   "studentCode": "STU-005", "enrollmentYear": 2021, "department": "Computer Science", "status": "active" },
+    { "id": "s6", "name": "Frank Davis",    "email": "frank@uni.edu",  "studentCode": "STU-006", "enrollmentYear": 2023, "department": "Mathematics",      "status": "inactive" },
+    { "id": "s7", "name": "Grace Wilson",   "email": "grace@uni.edu",  "studentCode": "STU-007", "enrollmentYear": 2022, "department": "Physics",          "status": "active" },
+    { "id": "s8", "name": "Henry Taylor",   "email": "henry@uni.edu",  "studentCode": "STU-008", "enrollmentYear": 2021, "department": "Computer Science", "status": "active" },
+    { "id": "s9", "name": "Iris Anderson",  "email": "iris@uni.edu",   "studentCode": "STU-009", "enrollmentYear": 2023, "department": "Mathematics",      "status": "active" },
+    { "id": "s10","name": "Jack Thomas",    "email": "jack@uni.edu",   "studentCode": "STU-010", "enrollmentYear": 2022, "department": "Physics",          "status": "active" }
+  ],
+  "courses": [
+    { "id": "c1", "title": "Data Structures",   "code": "CS301",   "description": "Fundamental data structures and algorithms.", "credits": 3, "semester": "Fall 2024", "department": "Computer Science", "instructorIds": ["f1","f2"], "maxCapacity": 40 },
+    { "id": "c2", "title": "Calculus II",        "code": "MATH202", "description": "Integral calculus, sequences, and series.",  "credits": 4, "semester": "Fall 2024", "department": "Mathematics",      "instructorIds": ["f3"],      "maxCapacity": 35 },
+    { "id": "c3", "title": "Quantum Mechanics",  "code": "PHYS401", "description": "Introduction to quantum theory.",             "credits": 4, "semester": "Fall 2024", "department": "Physics",          "instructorIds": ["f4"],      "maxCapacity": 25 },
+    { "id": "c4", "title": "Web Development",    "code": "CS410",   "description": "Modern web development with React.",         "credits": 3, "semester": "Fall 2024", "department": "Computer Science", "instructorIds": ["f1"],      "maxCapacity": 30 },
+    { "id": "c5", "title": "Linear Algebra",     "code": "MATH301", "description": "Vector spaces, matrices, eigenvalues.",      "credits": 3, "semester": "Fall 2024", "department": "Mathematics",      "instructorIds": ["f2","f3"], "maxCapacity": 40 },
+    { "id": "c6", "title": "Machine Learning",   "code": "CS501",   "description": "Supervised and unsupervised learning.",      "credits": 3, "semester": "Fall 2024", "department": "Computer Science", "instructorIds": ["f4"],      "maxCapacity": 30 }
+  ],
+  "faculty": [
+    { "id": "f1", "name": "Dr. Robert Chen",     "email": "rchen@uni.edu",     "department": "Computer Science", "title": "Associate Professor", "courseIds": ["c1","c4"] },
+    { "id": "f2", "name": "Dr. Sarah Kim",        "email": "skim@uni.edu",      "department": "Computer Science", "title": "Professor",           "courseIds": ["c1","c5"] },
+    { "id": "f3", "name": "Dr. Michael Patel",    "email": "mpatel@uni.edu",    "department": "Mathematics",      "title": "Associate Professor", "courseIds": ["c2","c5"] },
+    { "id": "f4", "name": "Dr. Lisa Thompson",    "email": "lthompson@uni.edu", "department": "Physics",          "title": "Professor",           "courseIds": ["c3","c6"] }
+  ],
+  "enrollments": [
+    { "id": "e1",  "studentId": "s1",  "courseId": "c1", "enrolledAt": "2024-09-01", "semester": "Fall 2024" },
+    { "id": "e2",  "studentId": "s1",  "courseId": "c4", "enrolledAt": "2024-09-01", "semester": "Fall 2024" },
+    { "id": "e3",  "studentId": "s1",  "courseId": "c6", "enrolledAt": "2024-09-01", "semester": "Fall 2024" },
+    { "id": "e4",  "studentId": "s2",  "courseId": "c2", "enrolledAt": "2024-09-01", "semester": "Fall 2024" },
+    { "id": "e5",  "studentId": "s2",  "courseId": "c5", "enrolledAt": "2024-09-01", "semester": "Fall 2024" },
+    { "id": "e6",  "studentId": "s3",  "courseId": "c1", "enrolledAt": "2024-09-02", "semester": "Fall 2024" },
+    { "id": "e7",  "studentId": "s3",  "courseId": "c4", "enrolledAt": "2024-09-02", "semester": "Fall 2024" },
+    { "id": "e8",  "studentId": "s4",  "courseId": "c3", "enrolledAt": "2024-09-01", "semester": "Fall 2024" },
+    { "id": "e9",  "studentId": "s4",  "courseId": "c5", "enrolledAt": "2024-09-01", "semester": "Fall 2024" },
+    { "id": "e10", "studentId": "s5",  "courseId": "c1", "enrolledAt": "2024-09-03", "semester": "Fall 2024" },
+    { "id": "e11", "studentId": "s5",  "courseId": "c6", "enrolledAt": "2024-09-03", "semester": "Fall 2024" },
+    { "id": "e12", "studentId": "s6",  "courseId": "c2", "enrolledAt": "2024-09-01", "semester": "Fall 2024" },
+    { "id": "e13", "studentId": "s7",  "courseId": "c3", "enrolledAt": "2024-09-02", "semester": "Fall 2024" },
+    { "id": "e14", "studentId": "s7",  "courseId": "c5", "enrolledAt": "2024-09-02", "semester": "Fall 2024" },
+    { "id": "e15", "studentId": "s8",  "courseId": "c1", "enrolledAt": "2024-09-01", "semester": "Fall 2024" },
+    { "id": "e16", "studentId": "s8",  "courseId": "c4", "enrolledAt": "2024-09-01", "semester": "Fall 2024" },
+    { "id": "e17", "studentId": "s8",  "courseId": "c6", "enrolledAt": "2024-09-01", "semester": "Fall 2024" },
+    { "id": "e18", "studentId": "s9",  "courseId": "c2", "enrolledAt": "2024-09-02", "semester": "Fall 2024" },
+    { "id": "e19", "studentId": "s9",  "courseId": "c5", "enrolledAt": "2024-09-02", "semester": "Fall 2024" },
+    { "id": "e20", "studentId": "s10", "courseId": "c3", "enrolledAt": "2024-09-01", "semester": "Fall 2024" }
+  ],
+  "grades": [
+    { "id": "g1",  "studentId": "s1",  "courseId": "c1", "enrollmentId": "e1",  "letterGrade": "A",  "numericGrade": 4.0, "semester": "Fall 2024" },
+    { "id": "g2",  "studentId": "s1",  "courseId": "c4", "enrollmentId": "e2",  "letterGrade": "A-", "numericGrade": 3.7, "semester": "Fall 2024" },
+    { "id": "g3",  "studentId": "s1",  "courseId": "c6", "enrollmentId": "e3",  "letterGrade": "B+", "numericGrade": 3.3, "semester": "Fall 2024" },
+    { "id": "g4",  "studentId": "s2",  "courseId": "c2", "enrollmentId": "e4",  "letterGrade": "A",  "numericGrade": 4.0, "semester": "Fall 2024" },
+    { "id": "g5",  "studentId": "s2",  "courseId": "c5", "enrollmentId": "e5",  "letterGrade": "A",  "numericGrade": 4.0, "semester": "Fall 2024" },
+    { "id": "g6",  "studentId": "s3",  "courseId": "c1", "enrollmentId": "e6",  "letterGrade": "B",  "numericGrade": 3.0, "semester": "Fall 2024" },
+    { "id": "g7",  "studentId": "s3",  "courseId": "c4", "enrollmentId": "e7",  "letterGrade": "B+", "numericGrade": 3.3, "semester": "Fall 2024" },
+    { "id": "g8",  "studentId": "s4",  "courseId": "c3", "enrollmentId": "e8",  "letterGrade": "A-", "numericGrade": 3.7, "semester": "Fall 2024" },
+    { "id": "g9",  "studentId": "s4",  "courseId": "c5", "enrollmentId": "e9",  "letterGrade": "B+", "numericGrade": 3.3, "semester": "Fall 2024" },
+    { "id": "g10", "studentId": "s5",  "courseId": "c1", "enrollmentId": "e10", "letterGrade": "A",  "numericGrade": 4.0, "semester": "Fall 2024" },
+    { "id": "g11", "studentId": "s5",  "courseId": "c6", "enrollmentId": "e11", "letterGrade": "A-", "numericGrade": 3.7, "semester": "Fall 2024" },
+    { "id": "g12", "studentId": "s6",  "courseId": "c2", "enrollmentId": "e12", "letterGrade": "C+", "numericGrade": 2.3, "semester": "Fall 2024" },
+    { "id": "g13", "studentId": "s7",  "courseId": "c3", "enrollmentId": "e13", "letterGrade": "B",  "numericGrade": 3.0, "semester": "Fall 2024" },
+    { "id": "g14", "studentId": "s7",  "courseId": "c5", "enrollmentId": "e14", "letterGrade": "B-", "numericGrade": 2.7, "semester": "Fall 2024" },
+    { "id": "g15", "studentId": "s8",  "courseId": "c1", "enrollmentId": "e15", "letterGrade": "A-", "numericGrade": 3.7, "semester": "Fall 2024" },
+    { "id": "g16", "studentId": "s8",  "courseId": "c4", "enrollmentId": "e16", "letterGrade": "A",  "numericGrade": 4.0, "semester": "Fall 2024" },
+    { "id": "g17", "studentId": "s8",  "courseId": "c6", "enrollmentId": "e17", "letterGrade": "A-", "numericGrade": 3.7, "semester": "Fall 2024" },
+    { "id": "g18", "studentId": "s9",  "courseId": "c2", "enrollmentId": "e18", "letterGrade": "B+", "numericGrade": 3.3, "semester": "Fall 2024" },
+    { "id": "g19", "studentId": "s9",  "courseId": "c5", "enrollmentId": "e19", "letterGrade": "B",  "numericGrade": 3.0, "semester": "Fall 2024" },
+    { "id": "g20", "studentId": "s10", "courseId": "c3", "enrollmentId": "e20", "letterGrade": "A",  "numericGrade": 4.0, "semester": "Fall 2024" }
+  ]
+}
