@@ -46,7 +46,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
-        <title>AcadAdmin — Academic Management Dashboard</title>
+        <title>Academic Management Dashboard</title>
         <meta name="description" content="Academic management dashboard — Gain Solutions Ltd" />
       </head>
       <body className="antialiased">
