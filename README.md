@@ -18,7 +18,6 @@
 
 ### Install & Run
 
-```bash
 # Clone the repository
 git clone https://github.com/hituhin/Assignment.git
 cd Assignment
@@ -29,7 +28,10 @@ npm install
 # Start the development server
 npm run dev
 
-
+# Visit the Application 
+  
+Open  [netlify] (https://assignment-gainsolution.netlify.app/)
+Open  [vercel] (https://assignment-meis.vercel.app/)
 
 ## Architecture & Key Decisions
 
